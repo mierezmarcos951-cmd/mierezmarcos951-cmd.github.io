@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marcos Mierez · Cocinero</title>
+<meta name="description" content="Portfolio de Marcos Miliam Mierez, profesional gastronómico de Oberá, Misiones: pastas, carnes, panificación y pastelería.">
+<meta property="og:title" content="Marcos Mierez · Cocinero">
+<meta property="og:description" content="Profesional gastronómico en Oberá, Misiones. Busco mi primer puesto como ayudante de cocina.">
+<meta property="og:image" content="img/marcos-emplatando.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: dark pass (the counter where plates go out). Photos carry the color; type reads like kitchen signage and order tickets. Single dark theme on purpose. */
+:root{
+  --ground:#121518;
+  --surface:#1B2024;
+  --line:#2C343A;
+  --text:#EEE9E1;
+  --muted:#A3A9AD;
+  --crust:#E2A452;
+  --crust-ink:#121518;
+  --sign:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--text);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.in{max-width:1120px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.tag{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--crust)}
+h1,h2{font-family:var(--sign);font-weight:900;text-transform:uppercase;letter-spacing:.01em;line-height:.92;margin:0;text-wrap:balance}
+h2{font-size:clamp(38px,7vw,64px)}
+p{margin:0}
+
+/* hero */
+.hero{padding-block:28px 56px}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:end}
+.hero figure{margin:0;position:relative}
+.hero figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:4px}
+.hero figcaption{position:absolute;left:12px;bottom:12px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:rgba(18,21,24,.82);padding:7px 9px;border-radius:2px}
+.hero h1{font-size:clamp(64px,15vw,150px)}
+.hero .role{font:600 clamp(18px,2.6vw,22px)/1.35 var(--body);margin-top:14px;max-width:32ch}
+.hero .where{color:var(--muted);margin-top:8px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:600 15px/1 var(--body);padding:14px 18px;border-radius:3px;border:1.5px solid var(--text)}
+.btn.main{background:var(--crust);border-color:var(--crust);color:var(--crust-ink)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--crust);outline-offset:3px}
+.status{display:inline-flex;gap:8px;align-items:center;margin-top:22px;font:500 13px/1 var(--mono);color:var(--muted)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#62C77F}
+
+/* section */
+section{padding-block:56px;border-top:1px solid var(--line)}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.head p{color:var(--muted);max-width:62ch}
+
+/* gallery */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:500 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--text);border:1.5px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--text);color:var(--ground);border-color:var(--text)}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dish{margin:0;background:var(--surface);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.dish button{all:unset;cursor:zoom-in;display:block}
+.dish img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .4s ease}
+.dish button:hover img{transform:scale(1.03)}
+.dish figcaption{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px}
+.dish .n{font-weight:600;line-height:1.3}
+.dish .t{font-size:13px;color:var(--muted);line-height:1.4}
+.dish .team{position:absolute;top:8px;left:8px;font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:rgba(18,21,24,.85);color:var(--text);padding:6px 8px;border-radius:2px;pointer-events:none}
+.dish[hidden]{display:none}
+.note{margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* skills + formación */
+.two{display:grid;grid-template-columns:1fr;gap:28px}
+.ticket{background:var(--text);color:var(--ground);padding:22px 20px 26px;border-radius:2px;font-family:var(--mono);font-size:14px;line-height:1.55;align-self:start}
+.ticket .th{display:flex;justify-content:space-between;border-bottom:1.5px dashed var(--ground);padding-bottom:10px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.ticket ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.ticket li{display:grid;grid-template-columns:28px 1fr;gap:6px}
+.ticket li b{font-weight:500}
+.ticket li span{font-family:var(--body);font-size:14px}
+.facts{display:flex;flex-direction:column;gap:18px}
+.fact{border-left:3px solid var(--crust);padding-left:14px}
+.fact .k{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fact .v{font-size:17px;font-weight:500}
+
+/* busco */
+.busco{display:grid;grid-template-columns:1fr;gap:12px}
+.pill{display:inline-block;border:1.5px solid var(--crust);color:var(--crust);border-radius:999px;padding:7px 13px;font:500 14px/1 var(--body);margin:0 6px 8px 0}
+
+/* contacto */
+.contact{background:var(--crust);color:var(--crust-ink)}
+.contact h2{font-size:clamp(44px,9vw,90px)}
+.contact .rows{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px;font-size:18px;font-weight:600;min-width:0}
+.contact .rows a{text-decoration:none;border-bottom:2px solid currentColor;justify-self:start;overflow-wrap:anywhere}
+.contact .btn{border-color:var(--crust-ink);color:var(--crust-ink)}
+.contact .btn.main{background:var(--crust-ink);color:var(--crust)}
+footer{padding-block:26px;color:var(--muted);font-size:13px}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh}
+dialog::backdrop{background:rgba(8,10,12,.92)}
+dialog img{max-height:82vh;width:auto;margin:0 auto;border-radius:3px}
+dialog p{color:var(--text);text-align:center;margin-top:10px;font-size:15px}
+dialog button{position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));background:var(--text);color:var(--ground);border:0;border-radius:3px;font:600 14px/1 var(--body);padding:10px 14px;cursor:pointer}
+
+@media (min-width:760px){
+  .hero{padding-block:48px 80px}
+  .hero .grid{grid-template-columns:1.05fr .95fr;gap:48px}
+  .hero .copy{order:-1;padding-bottom:12px}
+  .gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .two{grid-template-columns:1fr 1fr;gap:48px}
+  .busco{grid-template-columns:1fr 1fr;gap:28px}
+  .contact .rows{grid-template-columns:repeat(3,auto);justify-content:start;gap:28px}
+  section{padding-block:80px}
+}
+@media (min-width:1040px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dish img{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="in grid">
+    <figure>
+      <img src="img/marcos-emplatando.jpg" alt="Marcos terminando un plato de croquetas con ensalada César en la cocina del instituto">
+      <figcaption>Emplatando · cocina del IGI</figcaption>
+    </figure>
+    <div class="copy">
+      <div class="tag">Profesional gastronómico · Oberá, Misiones</div>
+      <h1 style="margin-top:14px">Marcos<br>Mierez</h1>
+      <p class="role">Pastas, carnes y pollo. Panes, focaccias y pizzas. Formado en IGI Instituto Gastronómico, 2024 – 2026.</p>
+      <p class="where">Oberá, Misiones · Cualquier horario · Inicio inmediato</p>
+      <div class="cta">
+        <a class="btn main" href="https://wa.me/5493755288657" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+        <a class="btn" href="cv/Marcos-Mierez-CV-Ayudante-de-Cocina.pdf" target="_blank" rel="noopener">Ver mi CV (PDF)</a>
+      </div>
+      <div class="status">Busco mi primer puesto en una cocina</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="platos">
+  <div class="in">
+    <div class="head">
+      <span class="tag">Lo que cocino</span>
+      <h2>Platos</h2>
+      <p>Trabajos de mi formación en el IGI. Tocá una foto para verla grande.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar platos">
+      <button type="button" data-f="all" aria-pressed="true">Todo</button>
+      <button type="button" data-f="pan" aria-pressed="false">Panadería</button>
+      <button type="button" data-f="cocina" aria-pressed="false">Cocina</button>
+      <button type="button" data-f="paste" aria-pressed="false">Pastelería</button>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/focaccia-cruda.jpg" alt="Focaccia con guavirova, cebolla morada y romero antes del horno" loading="lazy"></button>
+        <figcaption><span class="n">Focaccia de guavirova</span><span class="t">Fruta nativa de Misiones · cebolla morada y romero</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/pan-grenado.jpg" alt="Pan de campo con greñado decorativo, en sándwich" loading="lazy"></button>
+        <figcaption><span class="n">Pan de campo con greñado</span><span class="t">Corte decorativo en espiga · enharinado rústico</span></figcaption></figure>
+      <figure class="dish" data-c="cocina"><span class="team">En equipo</span><button type="button"><img src="img/pollo-relleno.jpg" alt="Pata-muslo de pollo rellena sobre puré" loading="lazy"></button>
+        <figcaption><span class="n">Pollo relleno sobre puré</span><span class="t">Pata-muslo deshuesada y rellena · puré con hierbas</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/pizza.jpg" alt="Pizza mitad muzzarella y mitad cebolla morada caramelizada" loading="lazy"></button>
+        <figcaption><span class="n">Pizza de dos gustos</span><span class="t">Masa propia · muzzarella y cebolla morada caramelizada</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/volcan.jpg" alt="Volcán de chocolate con frutilla" loading="lazy"></button>
+        <figcaption><span class="n">Volcán de chocolate</span><span class="t">Centro líquido · coulis de frutos rojos</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/focaccia-aceitunas.jpg" alt="Focaccia con aceitunas y cebolla cortada al medio" loading="lazy"></button>
+        <figcaption><span class="n">Focaccia de aceitunas</span><span class="t">Miga aireada · aceitunas, cebolla y romero</span></figcaption></figure>
+      <figure class="dish" data-c="cocina"><span class="team">En equipo</span><button type="button"><img src="img/esferificaciones.jpg" alt="Entrada con esferificaciones" loading="lazy"></button>
+        <figcaption><span class="n">Entrada con esferificaciones</span><span class="t">Esferificación · montaje en aro</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/pancitos.jpg" alt="Pancitos glaseados" loading="lazy"></button>
+        <figcaption><span class="n">Pancitos glaseados</span><span class="t">Bollería · pintado y horneado parejo</span></figcaption></figure>
+      <figure class="dish" data-c="cocina"><span class="team">En equipo</span><button type="button"><img src="img/jamon-langostinos.jpg" alt="Rollos de jamón crudo rellenos con langostinos" loading="lazy"></button>
+        <figcaption><span class="n">Jamón crudo relleno con langostinos</span><span class="t">Entrada fría</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/pan-hierbas.jpg" alt="Pan de molde con hierbas en sándwich" loading="lazy"></button>
+        <figcaption><span class="n">Pan de hierbas</span><span class="t">Pan de molde · miga suave con hierbas</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/cheesecake-tuile.jpg" alt="Postre cremoso con tuile crocante y salsa de frutos rojos" loading="lazy"></button>
+        <figcaption><span class="n">Postre con tuile y frutos rojos</span><span class="t">Tuile crocante · salsa de frutos rojos</span></figcaption></figure>
+      <figure class="dish" data-c="pan"><button type="button"><img src="img/focaccia-tomate.jpg" alt="Focaccia de cebolla morada en molde redondo" loading="lazy"></button>
+        <figcaption><span class="n">Focaccia de cebolla morada</span><span class="t">Horneada en molde redondo</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/strudel.jpg" alt="Porción de strudel con azúcar impalpable" loading="lazy"></button>
+        <figcaption><span class="n">Strudel</span><span class="t">Masa estirada · relleno de fruta y pasas</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/rogel.jpg" alt="Torta rogel con merengue" loading="lazy"></button>
+        <figcaption><span class="n">Rogel</span><span class="t">Capas finas · dulce de leche · merengue</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/torta-frutillas.jpg" alt="Torta con chocolate, crema, ananá y frutillas" loading="lazy"></button>
+        <figcaption><span class="n">Torta con frutillas y chocolate</span><span class="t">Cobertura de chocolate · fruta fresca</span></figcaption></figure>
+      <figure class="dish" data-c="paste"><span class="team">En equipo</span><button type="button"><img src="img/rollitos-salsa.jpg" alt="Rollitos de strudel con salsa de fruta" loading="lazy"></button>
+        <figcaption><span class="n">Rollitos de strudel</span><span class="t">Porción individual · salsa de fruta</span></figcaption></figure>
+    </div>
+    <p class="note">Los platos marcados “En equipo” los hicimos en grupo en las clases del instituto; los demás los hice yo solo.</p>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="in two">
+    <div class="head" style="margin:0">
+      <span class="tag">Formación</span>
+      <h2>Dónde aprendí</h2>
+      <div class="facts" style="margin-top:18px">
+        <div class="fact"><div class="k">2024 – 2026</div><div class="v">Profesional Gastronómico · IGI Instituto Gastronómico</div></div>
+        <div class="fact"><div class="k">Trabajo final · defensa dic. 2026</div><div class="v">“La Granjita”, granja educativa de mi familia en Campo Viera – Alberdi. Cociné toda la propuesta: desayuno misionero y almuerzo de empanadas y focaccia.</div></div>
+        <div class="fact"><div class="k">Manipulación de alimentos</div><div class="v">Carnet en trámite</div></div>
+      </div>
+      <p style="margin-top:22px;color:var(--muted)">Trabajo de forma puntual, ordenada y rápida. Lo que mejor me sale: pastas rellenas, carnes y pollo.</p>
+    </div>
+    <div class="ticket" aria-label="Lo que sé hacer">
+      <div class="th"><span>Comanda · lo que sé hacer</span><span>01</span></div>
+      <ul>
+        <li><b>1×</b><span>Pastas rellenas, carnes, pollo y parrilla</span></li>
+        <li><b>1×</b><span>Panificación: pan, focaccia, pizza, bollería, greñado</span></li>
+        <li><b>1×</b><span>Masas hojaldradas, strudel y chocolate</span></li>
+        <li><b>1×</b><span>Salsas, fondos, guarniciones y purés</span></li>
+        <li><b>1×</b><span>Frituras, croquetas y minutas</span></li>
+        <li><b>1×</b><span>Cocina regional misionera</span></li>
+        <li><b>1×</b><span>Esferificación y espumas</span></li>
+        <li><b>1×</b><span>Cortes, mise en place y emplatado</span></li>
+        <li><b>1×</b><span>Orden y limpieza del puesto</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="busco">
+  <div class="in busco">
+    <div class="head" style="margin:0">
+      <span class="tag">Qué busco</span>
+      <h2>Mi primer puesto</h2>
+      <p>Quiero sumarme a una cocina en Oberá para seguir aprendiendo en servicio real. Puedo empezar ya, en cualquier horario.</p>
+    </div>
+    <div>
+      <div class="tag" style="margin-bottom:12px">Puestos</div>
+      <div><span class="pill">Ayudante de cocina</span><span class="pill">Catering y eventos</span><span class="pill">Cocina de hotel</span><span class="pill">Cocina de comedor</span><span class="pill">Bachero para empezar</span></div>
+      <div class="tag" style="margin:18px 0 12px">Disponibilidad</div>
+      <div><span class="pill">Cualquier horario</span><span class="pill">Inicio inmediato</span></div>
+      <div class="tag" style="margin:18px 0 12px">Zona</div>
+      <div><span class="pill">Oberá, Misiones</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="in">
+    <span class="tag" style="color:var(--crust-ink)">Contacto</span>
+    <h2 style="margin-top:10px">Hablemos</h2>
+    <div class="rows">
+      <a href="https://wa.me/5493755288657" target="_blank" rel="noopener">WhatsApp +54 9 3755 28-8657</a>
+      <a href="mailto:mierezmarcos81@gmail.com">mierezmarcos81@gmail.com</a>
+      <a href="https://www.instagram.com/marcos217170/" target="_blank" rel="noopener">@marcos217170</a>
+    </div>
+    <div class="cta"><a class="btn main" href="cv/Marcos-Mierez-CV-Ayudante-de-Cocina.pdf" target="_blank" rel="noopener">Descargar CV</a></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="in">Marcos Miliam Mierez · Profesional gastronómico · Oberá, Misiones</div></footer>
+
+<dialog id="lb" aria-label="Foto ampliada"><button type="button" id="lbx">Cerrar</button><img id="lbi" alt=""><p id="lbc"></p></dialog>
+
+<script>
+const btns=[...document.querySelectorAll(".filters button")];
+const dishes=[...document.querySelectorAll(".dish")];
+btns.forEach(b=>b.addEventListener("click",()=>{
+  btns.forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+  dishes.forEach(d=>d.hidden=!(b.dataset.f==="all"||d.dataset.c===b.dataset.f));
+}));
+const lb=document.getElementById("lb"),lbi=document.getElementById("lbi"),lbc=document.getElementById("lbc");
+dishes.forEach(d=>d.querySelector("button").addEventListener("click",()=>{
+  const im=d.querySelector("img");lbi.src=im.src;lbi.alt=im.alt;lbc.textContent=d.querySelector(".n").textContent;
+  if(lb.showModal)lb.showModal();
+}));
+document.getElementById("lbx").addEventListener("click",()=>lb.close());
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+</script>
+</body>
+</html>
